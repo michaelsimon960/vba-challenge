@@ -22,7 +22,7 @@ For Each ws In Worksheets
 
 ws.Activate
 
-lastRowState = ws.Cells(Rows.Count, "A").End(x1Up).Row
+lastRowState = ws.Cells(Rows.Count, "A").End(xlUp).Row
 
 ws.Range("I1").Value = "Ticker"
 ws.Range("J1").Value = "Yearly Change"
@@ -75,14 +75,36 @@ Cells(number_tickers + 1, 10).Interior.ColorIndex = 6
 End If
 
 
+If opening_price = 0 Then
+percent_change = 0
+Else
+percent_change = (yearly_change / opening_price)
+End If
 
 
+Cells(number_tickers + 1, 11).Value = Format(percent_change, "Percent")
+
+If percent_change > 0 Then
+Cells(number_tickers + 1, 11).Interior.ColorIndex = 4
+
+ElseIf percent_change < 0 Then
+Cells(number_tickers + 1, 11).Interior.ColorIndex = 3
+Else
+Cells(number_tickers + 1, 11).Interior.ColorIndex = 6
+End If
 
 
+opening_price = 0
+
+Cells(number_tickers + 1, 12).Value = total_stock_volume
+
+total_stock_volume = 0
+
+End If
 
 
+Next i
 
-
-
+Next
 
 End Sub
