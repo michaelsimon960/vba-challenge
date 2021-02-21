@@ -63,6 +63,23 @@ Cells(number_tickers + 1, 10).Value = yearly_change
 
 
 
+If yearly_change > 0 Then
+Cells(number_tickers + 1, 10).Interior.ColorIndex = 4
+
+ElseIf yearly_change < 0 Then
+Cells(number_tickers + 1, 10).Interior.ColorIndex = 3
+
+Else
+Cells(number_tickers + 1, 10).Interior.ColorIndex = 6
+
+End If
+
+
+
+
+
+
+
 
 
 
