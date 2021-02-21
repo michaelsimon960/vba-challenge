@@ -46,7 +46,7 @@ opening_price = Cells(i, 3).Value
 End If
 
 
-total_stock_volume = total_stock_volume = Cells(i, 7).Value
+total_stock_volume = total_stock_volume + Cells(i, 7).Value
 
 If Cells(i + 1, 1).Value <> ticker Then
 
@@ -75,11 +75,17 @@ Cells(number_tickers + 1, 10).Interior.ColorIndex = 6
 End If
 
 
+
 If opening_price = 0 Then
 percent_change = 0
 Else
 percent_change = (yearly_change / opening_price)
 End If
+
+
+
+
+
 
 
 Cells(number_tickers + 1, 11).Value = Format(percent_change, "Percent")
@@ -105,6 +111,7 @@ End If
 
 Next i
 
-Next
+Next ws
+
 
 End Sub
