@@ -41,6 +41,27 @@ For i = 2 To lastRowState
 ticker = Cells(i, 1).Value
 
 
+If opening_price = 0 Then
+opening_price = Cells(i, 3).Value
+End If
+
+
+total_stock_volume = total_stock_volume = Cells(i, 7).Value
+
+If Cells(i + 1, 1).Value <> ticker Then
+
+number_tickers = number_tickers + 1
+Cells(number_tickers + 1, 9) = ticker
+
+
+closing_price = Cells(i, 6)
+
+yearly_change = closing_price - opening_price
+
+Cells(number_tickers + 1, 10).Value = yearly_change
+
+
+
 
 
 
